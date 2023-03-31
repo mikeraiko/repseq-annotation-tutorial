@@ -275,13 +275,14 @@ annotated %>%
   summarise(freq = sum(freq)) %>%
   # simplify plot by filtering all HLAs represented by less than 5 reads
   filter(freq > 4e-4) %>%
-  ggplot(aes(x=fct_reorder(sample_id, freq, fun = sum), y = freq, 
-             fill = fct_reorder(antigen.species, freq, fun = sum))) +
+  ggplot(aes(x=fct_reorder(sample_id, freq, .fun = sum), y = freq, 
+             fill = fct_reorder(antigen.species, freq, .fun = sum))) +
   geom_bar(stat="identity") +
   scale_fill_brewer("Antigen species", palette = "Spectral") +
   xlab("") + scale_y_continuous("Fraction of reads", labels = percent) +
   coord_flip() +
   theme_bw()
+
 ```
 
 Same for HLA
