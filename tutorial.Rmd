@@ -112,7 +112,7 @@ Plot diversity values
 
 ```{r message=FALSE}
 diversity %>%
-  melt %>%
+  reshape2::melt(.) %>%
   # set what values we are going to plot
   # fct_reorder reorders sample id by value
   ggplot(aes(x=fct_reorder2(sample_id, variable, value), y=value)) +
