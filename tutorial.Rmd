@@ -167,7 +167,7 @@ vusage = vusage %>%
 
 # create V usage matrix
 mat_vusage = vusage %>%
-  dcast(sample_id ~ v)
+  reshape2::dcast(sample_id ~ v)
 rownames(mat_vusage) = mat_vusage$sample_id
 mat_vusage$sample_id = NULL
 mat_vusage = as.matrix(mat_vusage)
