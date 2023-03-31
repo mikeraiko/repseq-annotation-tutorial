@@ -293,8 +293,8 @@ annotated %>%
   summarise(freq = sum(freq)) %>%
   # simplify plot by filtering all HLAs represented by less than 5 reads
   filter(freq > 4e-4) %>%
-  ggplot(aes(x=fct_reorder(sample_id, freq, fun = sum), y = freq, 
-             fill = fct_reorder(hla, freq, fun = sum))) +
+  ggplot(aes(x=fct_reorder(sample_id, freq, .fun = sum), y = freq, 
+             fill = fct_reorder(hla, freq, .fun = sum))) +
   geom_bar(stat="identity") +
   scale_fill_brewer("HLA allele", palette = "Spectral") +
   coord_flip() +
